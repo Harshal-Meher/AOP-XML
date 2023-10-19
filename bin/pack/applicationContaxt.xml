@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    
+    <bean class="pack.Demo" name="obj"/>
+    <bean class="pack.MyBefourAdv" name="ba"/>
+    <bean class="pack.MyAfterAdv" name="aa"/>
+    <bean class="pack.MyInterpretorAdv" name="MI"/>
+    
+    
+    
+    
+    
+    <bean id="proxy" class="org.springframework.aop.framework.ProxyFactoryBean">  
+<property name="target" ref="obj"></property>  
+<property name="interceptorNames">  
+<list>  
+<!-- <value>ba</value>  
+<value>aa</value> --> 
+<value>MI</value>
+</list>  
+</property>  
+</bean>  
+    
+
+</beans>
